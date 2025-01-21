@@ -14,7 +14,7 @@ const Events = () => {
       );
       setData(response.data);
     } catch (error) {
-      console.log(error);
+    //   console.log(error);
     }
   };
   useEffect(() => {
@@ -25,11 +25,11 @@ const Events = () => {
     axios
       .delete(`https://flight-backend-7st2.onrender.com/flights/delete/${id}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         window.location.reload();
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 
@@ -41,11 +41,11 @@ const Events = () => {
     axios
       .put(`https://flight-backend-7st2.onrender.com/flights/patch/${id}`)
       .then((req) => {
-        console.log(req);
+        // console.log(req);
         window.location.reload();
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 

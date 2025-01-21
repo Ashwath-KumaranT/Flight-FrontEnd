@@ -126,8 +126,8 @@ const Flights = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredFlights.map((flight) => (
-                  <tr key={flight._id} className="border-b hover:bg-gray-100">
+                {filteredFlights.map((flight, index) => (
+                  <tr key={index} className="border-b hover:bg-gray-100">
                     <td className="px-6 py-4 font-medium">{flight.airlines}</td>
                     <td className="px-6 py-4">{flight.name}</td>
                     <td className="px-6 py-4">

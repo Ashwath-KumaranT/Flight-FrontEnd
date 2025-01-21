@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import { Input } from "./ui/input";
 
-const Login = () => {
+const Login = ({ userIdFunction }) => {
   const { login } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,6 +25,7 @@ const Login = () => {
       login(response.data.newUser, response.data.newUser.userType);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("userId", response.data.newUser._id);
+      userIdFunction(response.data.newUser._id);
 
       setTimeout(() => {
         navigate("/home");
@@ -143,12 +144,11 @@ const Login = () => {
                             </GoogleOAuthProvider> */}
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don't have an account yet?{" "}
-                <a
-                  href="#"
-                  className="font-medium text-primary-600 bg- hover:underline dark:text-primary-500"
-                >
-                  <Link to="/signup">Sign up</Link>
-                </a>
+                <Link to="/signup">
+                  <span className="font-medium text-primary-600 bg- hover:underline dark:text-primary-500">
+                    Sign up
+                  </span>
+                </Link>
               </p>
             </form>
           </div>

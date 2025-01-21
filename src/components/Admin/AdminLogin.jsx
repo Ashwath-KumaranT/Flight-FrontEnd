@@ -20,7 +20,7 @@ const Login = () => {
         { email, password }
       );
       localStorage.setItem("token", response.data.token);
-      console.log(response.data.newUser.userType);
+    //   console.log(response.data.newUser.userType);
       login(response.data.newUser, response.data.newUser.userType);
       setTimeout(() => {
         navigate("/admin/dashboard");

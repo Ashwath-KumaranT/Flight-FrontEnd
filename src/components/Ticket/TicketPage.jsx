@@ -13,7 +13,7 @@ export default function TicketPage() {
       );
       setFlight(response.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

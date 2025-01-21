@@ -7,22 +7,32 @@ const MyBookings = () => {
   const { userId } = useParams();
   const _id = userId;
   const [flights, setFlights] = useState([]);
+  const [loading, setLoading] = useState(true); 
 
   const fetchFlight = async () => {
     try {
       const response = await axios.get(
         `https://flight-backend-7st2.onrender.com/flights/${_id}`
       );
-      console.log(response.data);
       setFlights(response.data);
+      setLoading(false); 
     } catch (error) {
-      console.log(error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchFlight();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 border-solid border-gray-200 border-t-primary-600 rounded-full"></div>
+        <span className="ml-2 text-lg">Loading...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gray-100">
@@ -40,8 +50,8 @@ const MyBookings = () => {
             </div>
 
             {flights.length > 0 ? (
-              flights.map((flight) => (
-                <div key={flight._id} className="mt-6 flow-root sm:mt-8">
+              flights.map((flight, index) => (
+                <div key={index} className="mt-6 flow-root sm:mt-8">
                   <div className="divide-y bg-gray-100">
                     <div className="flex flex-wrap items-center gap-y-4 py-6">
                       <dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">

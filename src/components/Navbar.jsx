@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useMemo, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Sheet,
   SheetContent,
@@ -8,16 +8,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../components/ui/sheet";
-import { Button } from './ui/button';
-import { useMemo } from 'react';
-import { useAuth } from '../context/Authcontext';
+import { useAuth } from "../context/Authcontext";
+import { Button } from "./ui/button";
 
-
-const Navbar = () => {
-    const navigate = useNavigate();
-  const userId = useMemo(() => {
-    return localStorage.getItem("userId");
-  }, []);
+const Navbar = ({userId, setUserId}) => {
+  const navigate = useNavigate();
+  
 
   const { logout, user } = useAuth();
 
@@ -54,17 +50,22 @@ const Navbar = () => {
 
       {/* Action Buttons */}
       <div className="flex items-center space-x-6">
-        {user ? ( 
-            <Button className="px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg" onClick={() => 
-            {logout()
-                navigate("/");
-            }}>
+        {user ? (
+          <Button
+            className="px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg"
+            onClick={() => {
+              logout();
+              navigate("/");
+              setUserId(null);
+            }}
+          >
             Logout
           </Button>
-        ): 
-        (<Button className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-lg">
+        ) : (
+          <Button className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-lg">
             <Link to="/login">Login</Link>
-          </Button>)}
+          </Button>
+        )}
         <Link
           to="/admin/login"
           className="text-gray-800 hover:text-blue-500 transition duration-200"

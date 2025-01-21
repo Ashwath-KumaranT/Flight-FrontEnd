@@ -10,7 +10,6 @@ export const Authprovider = ({ children }) => {
             localStorage.setItem("userRole", userRole);
             setRole(userRole);
             setUser(userData);
-
         }
     };
     const logout = () => {
@@ -25,7 +24,7 @@ export const Authprovider = ({ children }) => {
         localStorage.removeItem("flightDate");
         localStorage.removeItem("to");
         localStorage.removeItem("from");
-        localStorage.removeItem("userId");;
+        localStorage.removeItem("userId");
         setRole(null);
         setUser(null);
     };

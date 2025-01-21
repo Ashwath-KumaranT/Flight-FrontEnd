@@ -40,7 +40,7 @@ const MyBookings = () => {
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <div className="mx-auto max-w-5xl">
             <div className="gap-4 sm:flex sm:items-center sm:justify-between">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+              <h2 className="text-xl font-semibold text-gray-900 sm:text-2xl">
                 My Bookings
               </h2>
               <div className="mt-6 gap-4 space-y-4 sm:mt-0 sm:flex sm:items-center sm:justify-end sm:space-y-0">
@@ -58,7 +58,7 @@ const MyBookings = () => {
                         <dt className="text-base font-medium text-gray-500 dark:text-gray-400">
                           Airline:
                         </dt>
-                        <dd className="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
+                        <dd className="mt-1.5 text-base font-semibold text-gray-900">
                           {flight.airlines}
                         </dd>
                       </dl>
@@ -67,7 +67,7 @@ const MyBookings = () => {
                         <dt className="text-base font-medium text-gray-500 dark:text-gray-400">
                           Date:
                         </dt>
-                        <dd className="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
+                        <dd className="mt-1.5 text-base font-semibold text-gray-900">
                           {new Date(flight.date).toLocaleDateString()}
                         </dd>
                       </dl>
@@ -76,7 +76,7 @@ const MyBookings = () => {
                         <dt className="text-base font-medium text-gray-500 dark:text-gray-400">
                           Price:
                         </dt>
-                        <dd className="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
+                        <dd className="mt-1.5 text-base font-semibold text-gray-900 ">
                           ₹{flight.price}
                         </dd>
                       </dl>

@@ -126,12 +126,14 @@ const Signup = () => {
                 </div>
               </div>
 
-              <LoadingButton
-                onclick={handleSignup}
-                isLoading={isLoading}
-                text={"Create an account"}
-                style={"w-full text-white py-3 rounded-lg   duration-300"}
-              />
+              <button
+  onClick={handleSignup}
+  disabled={isLoading}
+  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {isLoading ? "Creating Account..." : "Create an Account"}
+</button>
+
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
                 <a
